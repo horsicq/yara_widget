@@ -121,7 +121,6 @@ void YARA_Widget::process()
 
         ui->pushButtonYaraScan->setText(tr("Stop"));
 
-
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
         QFuture<void> future = QtConcurrent::run(&YARA_Widget::scan, this);
 #else
@@ -149,7 +148,7 @@ void YARA_Widget::scan()
         g_bInitDatabase = true;
     }
 
-//    g_xyara.addRulesFile("C:\\tmp_build\\qt5\\Detect-It-Easy\\yara\\packer.yar");
+    //    g_xyara.addRulesFile("C:\\tmp_build\\qt5\\Detect-It-Easy\\yara\\packer.yar");
     g_xyara.setData(g_sFileName);
     g_xyara.setPdStruct(&g_pdStruct);
 
