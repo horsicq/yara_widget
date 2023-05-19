@@ -144,7 +144,7 @@ void YARA_Widget::scan()
     g_pdStruct = XBinary::createPdStruct();
 
     if (!g_bInitDatabase) {
-        g_xyara.loadRulesFromFolder(getGlobalOptions()->getValue(XOptions::ID_SCAN_YARADATABASEPATH).toString());
+        g_xyara.loadRulesFromFolder(getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString());
         g_bInitDatabase = true;
     }
 
