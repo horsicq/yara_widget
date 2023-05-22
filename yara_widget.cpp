@@ -78,6 +78,7 @@ void YARA_Widget::setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *
 
         QStandardItem *pItem = new QStandardItem;
         pItem->setText(pScanResult->listRecords.at(i).sRule);
+        pItem->setData(pScanResult->listRecords.at(i).sUUID, Qt::UserRole + 1);
 
         pItemParent->appendRow(pItem);
     }
