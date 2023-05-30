@@ -26,6 +26,7 @@
 #include <QtConcurrent>
 #include "xshortcutswidget.h"
 #include "xyaradialogprocess.h"
+#include "dialogtextinfo.h"
 
 namespace Ui {
 class YARA_Widget;
@@ -59,6 +60,7 @@ private slots:
     void stop();
     void on_scanFinished();
     void enableControls(bool bState);
+    void on_pushButtonYaraExtraInformation_clicked();
 
 private:
     Ui::YARA_Widget *ui;

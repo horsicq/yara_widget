@@ -193,3 +193,13 @@ void YARA_Widget::enableControls(bool bState)
         ui->progressBarScan->show();
     }
 }
+
+void YARA_Widget::on_pushButtonYaraExtraInformation_clicked()
+{
+    DialogTextInfo dialogInfo(this);
+
+    dialogInfo.setText(XOptions::getTreeModelText(ui->treeViewResult->model()));
+
+    dialogInfo.exec();
+}
+

@@ -5,14 +5,17 @@ DEPENDPATH += $$PWD
 
 HEADERS += \
     $$PWD/xyaradialogprocess.h \
-    $$PWD/yara_widget.h
+    $$PWD/yara_widget.h \
+    $$PWD/yarawidgetadvanced.h
 
 SOURCES += \
     $$PWD/xyaradialogprocess.cpp \
-    $$PWD/yara_widget.cpp
+    $$PWD/yara_widget.cpp \
+    $$PWD/yarawidgetadvanced.cpp
 
 FORMS += \
-    $$PWD/yara_widget.ui
+    $$PWD/yara_widget.ui \
+    $$PWD/yarawidgetadvanced.ui
 
 
 !contains(XCONFIG, dialogtextinfo) {
