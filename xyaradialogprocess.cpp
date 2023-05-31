@@ -47,3 +47,9 @@ XYaraDialogProcess::~XYaraDialogProcess()
 
     delete g_pThread;
 }
+
+void XYaraDialogProcess::setData(QString sFileName)
+{
+    g_pXYara->setData(sFileName);
+    g_pThread->start();
+}

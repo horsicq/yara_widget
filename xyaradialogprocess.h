@@ -30,6 +30,8 @@ public:
     explicit XYaraDialogProcess(QWidget *pParent, XYara *pXYara);
     ~XYaraDialogProcess();
 
+    void setData(QString sFileName);
+
 private:
     XYara *g_pXYara;
     QThread *g_pThread;
