@@ -202,4 +202,3 @@ void YARA_Widget::on_pushButtonYaraExtraInformation_clicked()
 
     dialogInfo.exec();
 }
-
