@@ -58,6 +58,7 @@ void YARA_Widget::setData(const QString &sFileName, bool bScan)
 
 void YARA_Widget::setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *pScanResult)
 {
+    // TODO delete old model
     qint32 nNumberOfRecords = pScanResult->listRecords.count();
 
     QStandardItemModel *pModel = new QStandardItemModel;
