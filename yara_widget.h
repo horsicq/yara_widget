@@ -61,6 +61,7 @@ private slots:
     void on_scanFinished();
     void enableControls(bool bState);
     void on_pushButtonYaraExtraInformation_clicked();
+    void on_pushButtonRules_clicked();
 
 private:
     Ui::YARA_Widget *ui;
