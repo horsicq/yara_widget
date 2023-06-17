@@ -43,7 +43,7 @@ YARAWidgetAdvanced::YARAWidgetAdvanced(QWidget *pParent) : XShortcutsWidget(pPar
     ui->tableWidgetMatches->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
     ui->tableWidgetMatches->horizontalHeader()->setSectionResizeMode(3, QHeaderView::Interactive);
 
-    ui->tableWidgetMatches->setColumnWidth(0, 120); // TODO Consts
+    ui->tableWidgetMatches->setColumnWidth(0, 120);  // TODO Consts
     ui->tableWidgetMatches->setColumnWidth(1, 80);
     ui->tableWidgetMatches->setColumnWidth(3, 20);
 }
@@ -64,7 +64,6 @@ void YARAWidgetAdvanced::setData(const QString &sFileName, bool bScan)
 
 void YARAWidgetAdvanced::adjustView()
 {
-
 }
 
 void YARAWidgetAdvanced::setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions)
