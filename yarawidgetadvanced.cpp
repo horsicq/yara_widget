@@ -64,6 +64,7 @@ void YARAWidgetAdvanced::setData(const QString &sFileName, bool bScan)
 
 void YARAWidgetAdvanced::adjustView()
 {
+    // TODO
 }
 
 void YARAWidgetAdvanced::setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions)
@@ -113,6 +114,7 @@ void YARAWidgetAdvanced::onSelectionChanged(const QItemSelection &itemSelected, 
 
     ui->tableWidgetMatches->setRowCount(0);
     ui->plainTextEdit->clear();
+    ui->lineEditRuleName->clear();
 
     QModelIndexList listSelected = itemSelected.indexes();
 
@@ -168,6 +170,7 @@ void YARAWidgetAdvanced::onSelectionChanged(const QItemSelection &itemSelected, 
                 ui->plainTextEdit->setTextCursor(newCursor);
 
                 ui->plainTextEdit->find(QString("rule %1").arg(scanStruct.sRule), QTextDocument::FindWholeWords | QTextDocument::FindBackward);
+                ui->lineEditRuleName->setText(scanStruct.sRulesFile);
 
                 break;
             }
