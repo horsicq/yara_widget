@@ -101,6 +101,7 @@ void YARA_Widget::setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions)
 
 void YARA_Widget::registerShortcuts(bool bState)
 {
+    Q_UNUSED(bState)
     // TODO
 }
 

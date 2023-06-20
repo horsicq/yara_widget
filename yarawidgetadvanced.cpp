@@ -75,6 +75,7 @@ void YARAWidgetAdvanced::setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions)
 
 void YARAWidgetAdvanced::registerShortcuts(bool bState)
 {
+    Q_UNUSED(bState)
     // TODO
 }
 
