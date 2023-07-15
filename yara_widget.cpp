@@ -55,7 +55,7 @@ void YARA_Widget::setData(const QString &sFileName, bool bScan)
         process();
     }
 }
-
+#ifdef USE_YARA
 void YARA_Widget::setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *pScanResult)
 {
     // TODO delete old model
@@ -87,7 +87,7 @@ void YARA_Widget::setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *
     pTreeView->setModel(pModel);
     pTreeView->expandAll();
 }
-
+#endif
 void YARA_Widget::adjustView()
 {
     g_bInitDatabase = false;
@@ -113,7 +113,9 @@ void YARA_Widget::on_pushButtonYaraScan_clicked()
 void YARA_Widget::clear()
 {
     g_bProcess = false;
+#ifdef USE_YARA
     g_scanResult = {};
+#endif
 }
 
 void YARA_Widget::process()
@@ -143,7 +145,7 @@ void YARA_Widget::process()
 void YARA_Widget::scan()
 {
     emit scanStarted();
-
+#ifdef USE_YARA
     g_pdStruct = XBinary::createPdStruct();
 
     if (!g_bInitDatabase) {
@@ -158,7 +160,7 @@ void YARA_Widget::scan()
     g_xyara.process();
 
     g_scanResult = g_xyara.getScanResult();
-
+#endif
     emit scanFinished();
 }
 
@@ -170,7 +172,7 @@ void YARA_Widget::stop()
 void YARA_Widget::on_scanFinished()
 {
     enableControls(true);
-
+#ifdef USE_YARA
     QAbstractItemModel *pOldModel = ui->treeViewResult->model();
 
     setResultToTreeView(ui->treeViewResult, &g_scanResult);
@@ -178,7 +180,7 @@ void YARA_Widget::on_scanFinished()
     deleteOldAbstractModel(&pOldModel);
 
     ui->lineEditElapsedTime->setText(QString("%1 %2").arg(QString::number(g_scanResult.nScanTime), tr("msec")));
-
+#endif
     g_bProcess = false;
 
     ui->pushButtonYaraScan->setEnabled(true);

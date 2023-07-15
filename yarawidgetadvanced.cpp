@@ -24,9 +24,9 @@
 YARAWidgetAdvanced::YARAWidgetAdvanced(QWidget *pParent) : XShortcutsWidget(pParent), ui(new Ui::YARAWidgetAdvanced)
 {
     ui->setupUi(this);
-
+#ifdef USE_YARA
     g_scanResult = {};
-
+#endif
     ui->tableWidgetMatches->setColumnCount(4);
     ui->tableWidgetMatches->setRowCount(0);
     // TODO set Title
@@ -81,6 +81,7 @@ void YARAWidgetAdvanced::registerShortcuts(bool bState)
 
 void YARAWidgetAdvanced::process()
 {
+#ifdef USE_YARA
     XYara xyara;
 
     QString sRulesPath = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString();
@@ -96,6 +97,7 @@ void YARAWidgetAdvanced::process()
     YARA_Widget::setResultToTreeView(ui->treeViewResult, &g_scanResult);
 
     connect(ui->treeViewResult->selectionModel(), SIGNAL(selectionChanged(QItemSelection, QItemSelection)), SLOT(onSelectionChanged(QItemSelection, QItemSelection)));
+#endif
 }
 
 void YARAWidgetAdvanced::on_pushButtonSave_clicked()
@@ -120,7 +122,7 @@ void YARAWidgetAdvanced::onSelectionChanged(const QItemSelection &itemSelected, 
     ui->lineEditRuleName->clear();
 
     QModelIndexList listSelected = itemSelected.indexes();
-
+#ifdef USE_YARA
     if (listSelected.count() >= 1) {
         QString sUUID = listSelected.at(0).data(Qt::UserRole + 1).toString();
 
@@ -179,6 +181,7 @@ void YARAWidgetAdvanced::onSelectionChanged(const QItemSelection &itemSelected, 
             }
         }
     }
+#endif
 }
 
 void YARAWidgetAdvanced::pushButtonSlot()

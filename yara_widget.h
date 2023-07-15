@@ -25,7 +25,9 @@
 #include <QWidget>
 #include <QtConcurrent>
 #include "xshortcutswidget.h"
+#ifdef USE_YARA
 #include "xyaradialogprocess.h"
+#endif
 #include "dialogtextinfo.h"
 
 namespace Ui {
@@ -40,8 +42,9 @@ public:
     ~YARA_Widget();
 
     void setData(const QString &sFileName, bool bScan = false);
+#ifdef USE_YARA
     static void setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *pScanResult);
-
+#endif
     void adjustView();
     void setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions);
 
@@ -65,9 +68,11 @@ private slots:
 
 private:
     Ui::YARA_Widget *ui;
+#ifdef USE_YARA
     XYara g_xyara;
-    QString g_sFileName;
     XYara::SCAN_RESULT g_scanResult;
+#endif
+    QString g_sFileName;
     QFutureWatcher<void> g_watcher;
     XBinary::PDSTRUCT g_pdStruct;
     bool g_bProcess;

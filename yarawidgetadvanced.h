@@ -23,7 +23,9 @@
 
 #include "xshortcutswidget.h"
 #include "yara_widget.h"
+#ifdef USE_YARA
 #include "xyaradialogprocess.h"
+#endif
 
 namespace Ui {
 class YARAWidgetAdvanced;
@@ -57,7 +59,9 @@ private slots:
 private:
     Ui::YARAWidgetAdvanced *ui;
     QString g_sFileName;
+#ifdef USE_YARA
     XYara::SCAN_RESULT g_scanResult;
+#endif
 };
 
 #endif  // YARAWIDGETADVANCED_H

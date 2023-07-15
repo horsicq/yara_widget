@@ -4,12 +4,10 @@ INCLUDEPATH += $$PWD
 DEPENDPATH += $$PWD
 
 HEADERS += \
-    $$PWD/xyaradialogprocess.h \
     $$PWD/yara_widget.h \
     $$PWD/yarawidgetadvanced.h
 
 SOURCES += \
-    $$PWD/xyaradialogprocess.cpp \
     $$PWD/yara_widget.cpp \
     $$PWD/yarawidgetadvanced.cpp
 
@@ -17,6 +15,13 @@ FORMS += \
     $$PWD/yara_widget.ui \
     $$PWD/yarawidgetadvanced.ui
 
+contains(XCONFIG, use_yara) {
+HEADERS += \
+    $$PWD/xyaradialogprocess.h
+
+SOURCES += \
+    $$PWD/xyaradialogprocess.cpp
+}
 
 !contains(XCONFIG, dialogtextinfo) {
     XCONFIG += dialogtextinfo
@@ -28,9 +33,12 @@ FORMS += \
     include($$PWD/../FormatDialogs/xdialogprocess.pri)
 }
 
-!contains(XCONFIG, xyara) {
-    XCONFIG += xyara
-    include($$PWD/../XYara/xyara.pri)
+contains(XCONFIG, use_yara) {
+    DEFINES += USE_YARA
+    !contains(XCONFIG, xyara) {
+        XCONFIG += xyara
+        include($$PWD/../XYara/xyara.pri)
+    }
 }
 
 DISTFILES += \
