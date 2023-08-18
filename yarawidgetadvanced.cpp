@@ -128,7 +128,7 @@ void YARAWidgetAdvanced::onSelectionChanged(const QItemSelection &itemSelected, 
 
         qint32 nNumberOfRecords = g_scanResult.listRecords.count();
 
-        for (int i = 0; i < nNumberOfRecords; i++) {
+        for (qint32 i = 0; i < nNumberOfRecords; i++) {
             if (g_scanResult.listRecords.at(i).sUUID == sUUID) {
                 XYara::SCAN_STRUCT scanStruct = g_scanResult.listRecords.at(i);
 
