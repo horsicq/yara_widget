@@ -190,7 +190,6 @@ void YARA_Widget::on_scanFinished()
 void YARA_Widget::enableControls(bool bState)
 {
     // TODO
-
     if (bState) {
         ui->progressBarScan->hide();
     } else {
