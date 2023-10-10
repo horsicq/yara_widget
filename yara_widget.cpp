@@ -209,5 +209,6 @@ void YARA_Widget::on_pushButtonYaraExtraInformation_clicked()
 void YARA_Widget::on_pushButtonRules_clicked()
 {
     QString sDirectory = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString();
+    sDirectory = XBinary::convertPathName(sDirectory);
     XOptions::showFolder(sDirectory);
 }
