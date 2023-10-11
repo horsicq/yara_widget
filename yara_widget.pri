@@ -4,14 +4,17 @@ INCLUDEPATH += $$PWD
 DEPENDPATH += $$PWD
 
 HEADERS += \
+    $$PWD/dialogyarawidgetadvanced.h \
     $$PWD/yara_widget.h \
     $$PWD/yarawidgetadvanced.h
 
 SOURCES += \
+    $$PWD/dialogyarawidgetadvanced.cpp \
     $$PWD/yara_widget.cpp \
     $$PWD/yarawidgetadvanced.cpp
 
 FORMS += \
+    $$PWD/dialogyarawidgetadvanced.ui \
     $$PWD/yara_widget.ui \
     $$PWD/yarawidgetadvanced.ui
 

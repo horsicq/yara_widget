@@ -29,6 +29,7 @@
 #include "xyaradialogprocess.h"
 #endif
 #include "dialogtextinfo.h"
+#include "dialogyarawidgetadvanced.h"
 
 namespace Ui {
 class YARA_Widget;
@@ -65,6 +66,7 @@ private slots:
     void enableControls(bool bState);
     void on_pushButtonYaraExtraInformation_clicked();
     void on_pushButtonRules_clicked();
+    void on_pushButtonYaraInfo_clicked();
 
 private:
     Ui::YARA_Widget *ui;

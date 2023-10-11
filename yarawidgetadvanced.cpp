@@ -204,5 +204,6 @@ void YARAWidgetAdvanced::on_pushButtonScan_clicked()
 void YARAWidgetAdvanced::on_pushButtonRules_clicked()
 {
     QString sDirectory = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString();
+    sDirectory = XBinary::convertPathName(sDirectory);
     XOptions::showFolder(sDirectory);
 }

@@ -212,3 +212,13 @@ void YARA_Widget::on_pushButtonRules_clicked()
     sDirectory = XBinary::convertPathName(sDirectory);
     XOptions::showFolder(sDirectory);
 }
+
+void YARA_Widget::on_pushButtonYaraInfo_clicked()
+{
+    DialogYARAWidgetAdvanced dialogYara(this);
+    dialogYara.setGlobal(getShortcuts(), getGlobalOptions());
+    dialogYara.setData(g_sFileName, true);
+
+    dialogYara.exec();
+}
+
