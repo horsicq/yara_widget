@@ -133,6 +133,8 @@ void YARA_Widget::process()
 #endif
 
         g_watcher.setFuture(future);
+
+//        YARA_Widget::scan();
     } else {
         ui->pushButtonYaraScan->setEnabled(false);
         stop();
