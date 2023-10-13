@@ -48,8 +48,8 @@ XYaraDialogProcess::~XYaraDialogProcess()
     delete g_pThread;
 }
 
-void XYaraDialogProcess::setData(const QString &sFileName)
+void XYaraDialogProcess::setData(const QString &sFileName, const QString &sRulesPath)
 {
-    g_pXYara->setData(sFileName);
+    g_pXYara->setData(sFileName, sRulesPath);
     g_pThread->start();
 }

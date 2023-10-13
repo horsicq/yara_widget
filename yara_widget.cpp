@@ -33,8 +33,6 @@ YARA_Widget::YARA_Widget(QWidget *pParent) : XShortcutsWidget(pParent), ui(new U
     clear();
 
     ui->progressBarScan->hide();
-
-    g_bInitDatabase = false;
 }
 
 YARA_Widget::~YARA_Widget()
@@ -90,7 +88,7 @@ void YARA_Widget::setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *
 #endif
 void YARA_Widget::adjustView()
 {
-    g_bInitDatabase = false;
+    // TODO
 }
 
 void YARA_Widget::setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions)
@@ -150,13 +148,8 @@ void YARA_Widget::scan()
 #ifdef USE_YARA
     g_pdStruct = XBinary::createPdStruct();
 
-    if (!g_bInitDatabase) {
-        g_xyara.loadRulesFromFolder(getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString());
-        g_bInitDatabase = true;
-    }
-
     //    g_xyara.addRulesFile("C:\\tmp_build\\qt5\\Detect-It-Easy\\yara\\packer.yar");
-    g_xyara.setData(g_sFileName);
+    g_xyara.setData(g_sFileName, getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString());
     g_xyara.setPdStruct(&g_pdStruct);
 
     g_xyara.process();
@@ -197,6 +190,11 @@ void YARA_Widget::enableControls(bool bState)
     } else {
         ui->progressBarScan->show();
     }
+
+    ui->treeViewResult->setEnabled(bState);
+    ui->pushButtonRules->setEnabled(bState);
+    ui->pushButtonYaraExtraInformation->setEnabled(bState);
+    ui->pushButtonYaraInfo->setEnabled(bState);
 }
 
 void YARA_Widget::on_pushButtonYaraExtraInformation_clicked()

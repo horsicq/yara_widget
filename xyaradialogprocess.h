@@ -30,7 +30,7 @@ public:
     explicit XYaraDialogProcess(QWidget *pParent, XYara *pXYara);
     ~XYaraDialogProcess();
 
-    void setData(const QString &sFileName);
+    void setData(const QString &sFileName, const QString &sRulesPath);
 
 private:
     XYara *g_pXYara;

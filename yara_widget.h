@@ -78,7 +78,6 @@ private:
     QFutureWatcher<void> g_watcher;
     XBinary::PDSTRUCT g_pdStruct;
     bool g_bProcess;
-    bool g_bInitDatabase;
 };
 
 #endif  // YARA_WIDGET_H
