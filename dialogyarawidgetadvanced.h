@@ -28,8 +28,7 @@ namespace Ui {
 class DialogYARAWidgetAdvanced;
 }
 
-class DialogYARAWidgetAdvanced : public XShortcutsDialog
-{
+class DialogYARAWidgetAdvanced : public XShortcutsDialog {
     Q_OBJECT
 
 public:
@@ -46,4 +45,4 @@ private:
     Ui::DialogYARAWidgetAdvanced *ui;
 };
 
-#endif // DIALOGYARAWIDGETADVANCED_H
+#endif  // DIALOGYARAWIDGETADVANCED_H

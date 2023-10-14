@@ -132,7 +132,7 @@ void YARA_Widget::process()
 
         g_watcher.setFuture(future);
 
-//        YARA_Widget::scan();
+        //        YARA_Widget::scan();
     } else {
         ui->pushButtonYaraScan->setEnabled(false);
         stop();
@@ -221,4 +221,3 @@ void YARA_Widget::on_pushButtonYaraInfo_clicked()
 
     dialogYara.exec();
 }
-
