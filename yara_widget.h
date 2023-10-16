@@ -39,10 +39,14 @@ class YARA_Widget : public XShortcutsWidget {
     Q_OBJECT
 
 public:
+    struct OPTIONS {
+        bool bHandleInfo;
+    };
+
     explicit YARA_Widget(QWidget *pParent = nullptr);
     ~YARA_Widget();
 
-    void setData(const QString &sFileName, bool bScan = false);
+    void setData(const QString &sFileName, OPTIONS options, bool bScan = false);
 #ifdef USE_YARA
     static void setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *pScanResult);
 #endif
@@ -55,6 +59,7 @@ protected:
 signals:
     void scanStarted();
     void scanFinished();
+    void showInfo();
 
 private slots:
     void on_pushButtonYaraScan_clicked();
@@ -75,6 +80,7 @@ private:
     XYara::SCAN_RESULT g_scanResult;
 #endif
     QString g_sFileName;
+    OPTIONS g_options;
     QFutureWatcher<void> g_watcher;
     XBinary::PDSTRUCT g_pdStruct;
     bool g_bProcess;
