@@ -9,4 +9,7 @@ set(YARA_WIDGET_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/yara_widget.ui
     ${CMAKE_CURRENT_LIST_DIR}/yarawidgetadvanced.cpp
     ${CMAKE_CURRENT_LIST_DIR}/yarawidgetadvanced.ui
+    ${CMAKE_CURRENT_LIST_DIR}/xyaradialogprocess.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/dialogyarawidgetadvanced.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/dialogyarawidgetadvanced.ui
 )
