@@ -22,7 +22,6 @@
 #define YARA_WIDGET_H
 
 #include <QFutureWatcher>
-#include <QWidget>
 #include <QtConcurrent>
 #include "xshortcutswidget.h"
 #ifdef USE_YARA
