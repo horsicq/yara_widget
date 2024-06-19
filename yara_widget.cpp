@@ -91,6 +91,7 @@ void YARA_Widget::setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *
 #endif
 void YARA_Widget::adjustView()
 {
+    XShortcutsWidget::adjustView();
     // TODO
 }
 

@@ -64,6 +64,7 @@ void YARAWidgetAdvanced::setData(const QString &sFileName, bool bScan)
 
 void YARAWidgetAdvanced::adjustView()
 {
+    XShortcutsWidget::adjustView();
     // TODO
 }
 
