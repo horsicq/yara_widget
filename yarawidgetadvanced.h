@@ -39,7 +39,7 @@ public:
     ~YARAWidgetAdvanced();
 
     void setData(const QString &sFileName, bool bScan = false);
-    void adjustView();
+    virtual void adjustView();
     void setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions);
 
 signals:

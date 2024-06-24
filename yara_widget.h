@@ -49,7 +49,7 @@ public:
 #ifdef USE_YARA
     static void setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *pScanResult);
 #endif
-    void adjustView();
+    virtual void adjustView();
     void setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions);
 
 protected:
