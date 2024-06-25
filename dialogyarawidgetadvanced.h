@@ -35,11 +35,16 @@ public:
     explicit DialogYARAWidgetAdvanced(QWidget *pParent = nullptr);
     ~DialogYARAWidgetAdvanced();
 
+    virtual void adjustView() {}
+
     void setData(const QString &sFileName, bool bScan = false);
     void setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions);
 
 private slots:
     void on_pushButtonClose_clicked();
+
+protected:
+    virtual void registerShortcuts(bool bState) { Q_UNUSED(bState) }
 
 private:
     Ui::DialogYARAWidgetAdvanced *ui;
