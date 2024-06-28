@@ -45,7 +45,7 @@ public:
     explicit YARA_Widget(QWidget *pParent = nullptr);
     ~YARA_Widget();
 
-    void setData(const QString &sFileName, OPTIONS options, bool bScan = false);
+    void setData(const QString &sFileName, OPTIONS scanOptions, bool bScan = false);
 #ifdef USE_YARA
     static void setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *pScanResult);
 #endif
@@ -79,7 +79,7 @@ private:
     XYara::SCAN_RESULT g_scanResult;
 #endif
     QString g_sFileName;
-    OPTIONS g_options;
+    OPTIONS g_scanOptions;
     QFutureWatcher<void> g_watcher;
     XBinary::PDSTRUCT g_pdStruct;
     bool g_bProcess;

@@ -34,7 +34,7 @@ YARA_Widget::YARA_Widget(QWidget *pParent) : XShortcutsWidget(pParent), ui(new U
 
     ui->progressBarScan->hide();
 
-    g_options = {};
+    g_scanOptions = {};
 }
 
 YARA_Widget::~YARA_Widget()
@@ -47,10 +47,10 @@ YARA_Widget::~YARA_Widget()
     delete ui;
 }
 
-void YARA_Widget::setData(const QString &sFileName, OPTIONS options, bool bScan)
+void YARA_Widget::setData(const QString &sFileName, OPTIONS scanOptions, bool bScan)
 {
     g_sFileName = sFileName;
-    g_options = options;
+    g_scanOptions = scanOptions;
 
     if (bScan) {
         process();
@@ -203,6 +203,7 @@ void YARA_Widget::enableControls(bool bState)
 void YARA_Widget::on_pushButtonYaraExtraInformation_clicked()
 {
     DialogTextInfo dialogInfo(this);
+    dialogInfo.setGlobal(getShortcuts(), getGlobalOptions());
 
     dialogInfo.setText(XOptions::getTreeModelText(ui->treeViewResult->model()));
 
@@ -218,7 +219,7 @@ void YARA_Widget::on_pushButtonRules_clicked()
 
 void YARA_Widget::on_pushButtonYaraInfo_clicked()
 {
-    if (!g_options.bHandleInfo) {
+    if (!g_scanOptions.bHandleInfo) {
         DialogYARAWidgetAdvanced dialogYara(this);
         dialogYara.setGlobal(getShortcuts(), getGlobalOptions());
         dialogYara.setData(g_sFileName, true);
