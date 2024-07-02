@@ -64,6 +64,7 @@ void YARAWidgetAdvanced::setData(const QString &sFileName, bool bScan)
 
 void YARAWidgetAdvanced::adjustView()
 {
+    getGlobalOptions()->adjustWidget(this, XOptions::ID_VIEW_FONT_CONTROLS);
     getGlobalOptions()->adjustWidget(ui->plainTextEdit, XOptions::ID_VIEW_FONT_TEXTEDITS);
 }
 
