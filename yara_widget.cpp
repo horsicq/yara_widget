@@ -204,7 +204,6 @@ void YARA_Widget::on_pushButtonYaraExtraInformation_clicked()
 {
     DialogTextInfo dialogInfo(this);
     dialogInfo.setGlobal(getShortcuts(), getGlobalOptions());
-
     dialogInfo.setText(XOptions::getTreeModelText(ui->treeViewResult->model()));
 
     dialogInfo.exec();

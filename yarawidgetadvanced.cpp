@@ -88,6 +88,7 @@ void YARAWidgetAdvanced::process()
     QString sRulesPath = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString();
 
     XYaraDialogProcess dialogStaticScanProcess(this, &xyara);
+    dialogStaticScanProcess.setGlobal(getShortcuts(), getGlobalOptions());
     dialogStaticScanProcess.setData(g_sFileName, sRulesPath);
     dialogStaticScanProcess.showDialogDelay();
 
