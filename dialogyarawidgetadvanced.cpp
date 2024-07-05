@@ -21,7 +21,7 @@
 #include "dialogyarawidgetadvanced.h"
 #include "ui_dialogyarawidgetadvanced.h"
 
-DialogYARAWidgetAdvanced::DialogYARAWidgetAdvanced(QWidget *pParent) : XShortcutsDialog(pParent), ui(new Ui::DialogYARAWidgetAdvanced)
+DialogYARAWidgetAdvanced::DialogYARAWidgetAdvanced(QWidget *pParent) : XShortcutsDialog(pParent, true), ui(new Ui::DialogYARAWidgetAdvanced)
 {
     ui->setupUi(this);
 }
