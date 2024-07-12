@@ -31,6 +31,11 @@ DialogYARAWidgetAdvanced::~DialogYARAWidgetAdvanced()
     delete ui;
 }
 
+void DialogYARAWidgetAdvanced::adjustView()
+{
+
+}
+
 void DialogYARAWidgetAdvanced::setData(const QString &sFileName, bool bScan)
 {
     ui->widgetScan->setData(sFileName, bScan);

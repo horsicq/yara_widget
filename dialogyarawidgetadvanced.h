@@ -35,9 +35,7 @@ public:
     explicit DialogYARAWidgetAdvanced(QWidget *pParent = nullptr);
     ~DialogYARAWidgetAdvanced();
 
-    virtual void adjustView()
-    {
-    }
+    virtual void adjustView();
 
     void setData(const QString &sFileName, bool bScan = false);
     void setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions);
