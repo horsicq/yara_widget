@@ -33,7 +33,6 @@ DialogYARAWidgetAdvanced::~DialogYARAWidgetAdvanced()
 
 void DialogYARAWidgetAdvanced::adjustView()
 {
-
 }
 
 void DialogYARAWidgetAdvanced::setData(const QString &sFileName, bool bScan)
