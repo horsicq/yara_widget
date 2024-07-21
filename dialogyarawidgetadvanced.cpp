@@ -50,3 +50,8 @@ void DialogYARAWidgetAdvanced::on_pushButtonClose_clicked()
 {
     this->close();
 }
+
+void DialogYARAWidgetAdvanced::registerShortcuts(bool bState)
+{
+    Q_UNUSED(bState)
+}
