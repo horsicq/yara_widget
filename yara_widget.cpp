@@ -159,6 +159,7 @@ void YARA_Widget::scan()
 
     g_scanResult = g_xyara.getScanResult();
 #endif
+    // emit currentFileType(g_scanResult.ftInit);
     emit scanFinished();
 }
 
