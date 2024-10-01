@@ -26,6 +26,7 @@
 #ifdef USE_YARA
 #include "xyaradialogprocess.h"
 #endif
+#include <QPushButton>
 
 namespace Ui {
 class YARAWidgetAdvanced;
@@ -50,11 +51,11 @@ protected:
 
 private slots:
     void process();
-    void on_pushButtonSave_clicked();
+    void on_toolButtonSave_clicked();
     void onSelectionChanged(const QItemSelection &itemSelected, const QItemSelection &itemDeselected);
     void pushButtonSlot();
-    void on_pushButtonScan_clicked();
-    void on_pushButtonRules_clicked();
+    void on_toolButtonScan_clicked();
+    void on_toolButtonRules_clicked();
 
 private:
     Ui::YARAWidgetAdvanced *ui;

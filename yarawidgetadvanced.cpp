@@ -24,6 +24,18 @@
 YARAWidgetAdvanced::YARAWidgetAdvanced(QWidget *pParent) : XShortcutsWidget(pParent), ui(new Ui::YARAWidgetAdvanced)
 {
     ui->setupUi(this);
+
+    XOptions::addToolButtonIcon(ui->toolButtonScan, ":/icons/Refresh.16.16.png");
+    XOptions::addToolButtonIcon(ui->toolButtonSave, ":/icons/Save.16.16.png");
+
+    ui->toolButtonRules->setToolTip(tr("Rules"));
+    ui->toolButtonScan->setToolTip(tr("Scan"));
+    ui->toolButtonSave->setToolTip(tr("Save"));
+    ui->plainTextEdit->setToolTip(tr("Rules"));
+    ui->treeViewResult->setToolTip(tr("Result"));
+    ui->tableWidgetMatches->setToolTip(tr("Matches"));
+    ui->lineEditRuleName->setToolTip(tr("Rule name"));
+
 #ifdef USE_YARA
     g_scanResult = {};
 #endif
@@ -100,7 +112,7 @@ void YARAWidgetAdvanced::process()
 #endif
 }
 
-void YARAWidgetAdvanced::on_pushButtonSave_clicked()
+void YARAWidgetAdvanced::on_toolButtonSave_clicked()
 {
     QString sSaveFileName = XBinary::getResultFileName(g_sFileName, QString("%1.txt").arg(QString("YARA")));
 
@@ -196,12 +208,12 @@ void YARAWidgetAdvanced::pushButtonSlot()
     }
 }
 
-void YARAWidgetAdvanced::on_pushButtonScan_clicked()
+void YARAWidgetAdvanced::on_toolButtonScan_clicked()
 {
     process();
 }
 
-void YARAWidgetAdvanced::on_pushButtonRules_clicked()
+void YARAWidgetAdvanced::on_toolButtonRules_clicked()
 {
     QString sDirectory = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString();
     sDirectory = XBinary::convertPathName(sDirectory);
