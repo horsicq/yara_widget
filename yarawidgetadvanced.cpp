@@ -25,8 +25,8 @@ YARAWidgetAdvanced::YARAWidgetAdvanced(QWidget *pParent) : XShortcutsWidget(pPar
 {
     ui->setupUi(this);
 
-    XOptions::addToolButtonIcon(ui->toolButtonScan, ":/icons/Refresh.16.16.png");
-    XOptions::addToolButtonIcon(ui->toolButtonSave, ":/icons/Save.16.16.png");
+    XOptions::adjustToolButton(ui->toolButtonScan, XOptions::ICONTYPE_SCAN);
+    XOptions::adjustToolButton(ui->toolButtonSave, XOptions::ICONTYPE_SAVE);
 
     ui->toolButtonRules->setToolTip(tr("Rules"));
     ui->toolButtonScan->setToolTip(tr("Scan"));
