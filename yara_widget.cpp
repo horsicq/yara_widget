@@ -36,7 +36,7 @@ YARA_Widget::YARA_Widget(QWidget *pParent) : XShortcutsWidget(pParent), ui(new U
 
     g_scanOptions = {};
 
-    ui->lineEditElapsedTime->setText(QString("%1 %2").arg(0).arg(tr("msec"))); // TODO Function
+    ui->lineEditElapsedTime->setText(QString("%1 %2").arg(0).arg(tr("msec")));  // TODO Function
 }
 
 YARA_Widget::~YARA_Widget()
