@@ -42,6 +42,7 @@ public:
     void setData(const QString &sFileName, bool bScan = false);
     virtual void adjustView();
     void setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions);
+    virtual void reloadData(bool bSaveSelection);
 
 signals:
     void showHex(qint64 nOffset, qint64 nSize);
