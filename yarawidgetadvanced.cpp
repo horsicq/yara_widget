@@ -88,9 +88,8 @@ void YARAWidgetAdvanced::setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions)
 
 void YARAWidgetAdvanced::reloadData(bool bSaveSelection)
 {
-    if (!bSaveSelection) {
-        process();
-    }
+    Q_UNUSED(bSaveSelection)
+    process();
 }
 
 void YARAWidgetAdvanced::registerShortcuts(bool bState)
