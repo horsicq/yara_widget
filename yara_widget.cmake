@@ -1,9 +1,12 @@
 include_directories(${CMAKE_CURRENT_LIST_DIR})
 
-include(${CMAKE_CURRENT_LIST_DIR}/../FormatDialogs/dialogtextinfo.cmake)
+if (NOT DEFINED DIALOGTEXTINFO_SOURCES)
+    include(${CMAKE_CURRENT_LIST_DIR}/../FormatDialogs/dialogtextinfo.cmake)
+    set(YARA_WIDGET_SOURCES ${YARA_WIDGET_SOURCES} ${DIALOGTEXTINFO_SOURCES})
+endif()
 
 set(YARA_WIDGET_SOURCES
-    ${FORMRESULT_SOURCES}
+    ${YARA_WIDGET_SOURCES}
     ${DIALOGTEXTINFO_SOURCES}
     ${CMAKE_CURRENT_LIST_DIR}/yara_widget.cpp
     ${CMAKE_CURRENT_LIST_DIR}/yara_widget.h
