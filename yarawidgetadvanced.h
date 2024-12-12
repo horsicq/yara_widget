@@ -44,9 +44,6 @@ public:
     void setGlobal(XShortcuts *pShortcuts, XOptions *pXOptions);
     virtual void reloadData(bool bSaveSelection);
 
-signals:
-    void showHex(qint64 nOffset, qint64 nSize);
-
 protected:
     virtual void registerShortcuts(bool bState);
 

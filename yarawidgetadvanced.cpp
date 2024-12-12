@@ -210,7 +210,7 @@ void YARAWidgetAdvanced::pushButtonSlot()
         qint64 nOffset = pPushButton->property("OFFSET").toLongLong();
         qint64 nSize = pPushButton->property("SIZE").toLongLong();
 
-        emit showHex(nOffset, nSize);
+        emit followLocation(nOffset, XBinary::LT_OFFSET, nSize, XOptions::WIDGETTYPE_HEX);
     }
 }
 
