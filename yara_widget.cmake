@@ -7,7 +7,6 @@ endif()
 
 set(YARA_WIDGET_SOURCES
     ${YARA_WIDGET_SOURCES}
-    ${DIALOGTEXTINFO_SOURCES}
     ${CMAKE_CURRENT_LIST_DIR}/yara_widget.cpp
     ${CMAKE_CURRENT_LIST_DIR}/yara_widget.h
     ${CMAKE_CURRENT_LIST_DIR}/yara_widget.ui
