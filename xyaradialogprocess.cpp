@@ -30,7 +30,7 @@ XYaraDialogProcess::XYaraDialogProcess(QWidget *pParent, XYara *pXYara) : XDialo
 
     g_pXYara->moveToThread(g_pThread);
 
-    connect(g_pThread, SIGNAL(started()), g_pXYara, SLOT(process()));
+    connect(g_pThread, SIGNAL(started()), g_pXYara, SLOT(_process()));
     connect(g_pXYara, SIGNAL(completed(qint64)), this, SLOT(onCompleted(qint64)));
     connect(g_pXYara, SIGNAL(errorMessage(QString)), this, SLOT(errorMessageSlot(QString)));
 
