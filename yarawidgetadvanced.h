@@ -24,7 +24,8 @@
 #include "xshortcutswidget.h"
 #include "yara_widget.h"
 #ifdef USE_YARA
-#include "xyaradialogprocess.h"
+#include "xdialogprocess.h"
+#include "xyara.h"
 #endif
 #include <QPushButton>
 

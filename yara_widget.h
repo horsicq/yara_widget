@@ -25,7 +25,8 @@
 #include <QtConcurrent>
 #include "xshortcutswidget.h"
 #ifdef USE_YARA
-#include "xyaradialogprocess.h"
+#include "xdialogprocess.h"
+#include "xyara.h"
 #endif
 #include "dialogtextinfo.h"
 #include "dialogyarawidgetadvanced.h"

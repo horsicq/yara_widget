@@ -160,9 +160,7 @@ void YARA_Widget::scan()
     g_pdStruct = XBinary::createPdStruct();
 
     //    g_xyara.addRulesFile("C:\\tmp_build\\qt5\\Detect-It-Easy\\yara\\packer.yar");
-    g_xyara.setData(g_sFileName, getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString());
-    g_xyara.setPdStruct(&g_pdStruct);
-
+    g_xyara.setData(g_sFileName, getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString(), &g_pdStruct);
     g_xyara.process();
 
     g_scanResult = g_xyara.getScanResult();

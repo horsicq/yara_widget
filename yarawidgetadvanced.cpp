@@ -102,12 +102,12 @@ void YARAWidgetAdvanced::process()
 {
 #ifdef USE_YARA
     XYara xyara;
-
     QString sRulesPath = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString();
 
-    XYaraDialogProcess dialogStaticScanProcess(this, &xyara);
+    XDialogProcess dialogStaticScanProcess(this, &xyara);
     dialogStaticScanProcess.setGlobal(getShortcuts(), getGlobalOptions());
-    dialogStaticScanProcess.setData(g_sFileName, sRulesPath);
+    xyara.setData(g_sFileName, sRulesPath, dialogStaticScanProcess.getPdStruct());
+    dialogStaticScanProcess.start();
     dialogStaticScanProcess.showDialogDelay();
 
     g_scanResult = xyara.getScanResult();
