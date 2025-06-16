@@ -18,14 +18,6 @@ FORMS += \
     $$PWD/yara_widget.ui \
     $$PWD/yarawidgetadvanced.ui
 
-contains(XCONFIG, use_yara) {
-HEADERS += \
-    $$PWD/xyaradialogprocess.h
-
-SOURCES += \
-    $$PWD/xyaradialogprocess.cpp
-}
-
 !contains(XCONFIG, dialogtextinfo) {
     XCONFIG += dialogtextinfo
     include($$PWD/../FormatDialogs/dialogtextinfo.pri)
