@@ -58,9 +58,9 @@ private slots:
 
 private:
     Ui::YARAWidgetAdvanced *ui;
-    QString g_sFileName;
+    QString m_sFileName;
 #ifdef USE_YARA
-    XYara::SCAN_RESULT g_scanResult;
+    XYara::SCAN_RESULT m_scanResult;
 #endif
 };
 

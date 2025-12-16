@@ -37,7 +37,7 @@ YARAWidgetAdvanced::YARAWidgetAdvanced(QWidget *pParent) : XShortcutsWidget(pPar
     ui->lineEditRuleName->setToolTip(tr("Rule name"));
 
 #ifdef USE_YARA
-    g_scanResult = {};
+    m_scanResult = {};
 #endif
     ui->tableWidgetMatches->setColumnCount(4);
     ui->tableWidgetMatches->setRowCount(0);
@@ -67,7 +67,7 @@ YARAWidgetAdvanced::~YARAWidgetAdvanced()
 
 void YARAWidgetAdvanced::setData(const QString &sFileName, bool bScan)
 {
-    g_sFileName = sFileName;
+    m_sFileName = sFileName;
 
     if (bScan) {
         process();
@@ -106,13 +106,13 @@ void YARAWidgetAdvanced::process()
 
     XDialogProcess dialogStaticScanProcess(this, &xyara);
     dialogStaticScanProcess.setGlobal(getShortcuts(), getGlobalOptions());
-    xyara.setData(g_sFileName, sRulesPath, dialogStaticScanProcess.getPdStruct());
+    xyara.setData(m_sFileName, sRulesPath, dialogStaticScanProcess.getPdStruct());
     dialogStaticScanProcess.start();
     dialogStaticScanProcess.showDialogDelay();
 
-    g_scanResult = xyara.getScanResult();
+    m_scanResult = xyara.getScanResult();
 
-    YARA_Widget::setResultToTreeView(ui->treeViewResult, &g_scanResult);
+    YARA_Widget::setResultToTreeView(ui->treeViewResult, &m_scanResult);
 
     connect(ui->treeViewResult->selectionModel(), SIGNAL(selectionChanged(QItemSelection, QItemSelection)), SLOT(onSelectionChanged(QItemSelection, QItemSelection)));
 #endif
@@ -120,7 +120,7 @@ void YARAWidgetAdvanced::process()
 
 void YARAWidgetAdvanced::on_toolButtonSave_clicked()
 {
-    QString sSaveFileName = XBinary::getResultFileName(g_sFileName, QString("%1.txt").arg(QString("YARA")));
+    QString sSaveFileName = XBinary::getResultFileName(m_sFileName, QString("%1.txt").arg(QString("YARA")));
 
     QString _sFileName = QFileDialog::getSaveFileName(this, tr("Save"), sSaveFileName, QString("%1 (*.txt);;%2 (*)").arg(tr("Text files"), tr("All files")));
 
@@ -144,11 +144,11 @@ void YARAWidgetAdvanced::onSelectionChanged(const QItemSelection &itemSelected, 
     if (listSelected.count() >= 1) {
         QString sUUID = listSelected.at(0).data(Qt::UserRole + 1).toString();
 
-        qint32 nNumberOfRecords = g_scanResult.listRecords.count();
+        qint32 nNumberOfRecords = m_scanResult.listRecords.count();
 
         for (qint32 i = 0; i < nNumberOfRecords; i++) {
-            if (g_scanResult.listRecords.at(i).sUUID == sUUID) {
-                XYara::SCAN_STRUCT scanStruct = g_scanResult.listRecords.at(i);
+            if (m_scanResult.listRecords.at(i).sUUID == sUUID) {
+                XYara::SCAN_STRUCT scanStruct = m_scanResult.listRecords.at(i);
 
                 qint32 nNumberOfMatches = scanStruct.listScanMatches.count();
                 ui->tableWidgetMatches->setRowCount(nNumberOfMatches);
