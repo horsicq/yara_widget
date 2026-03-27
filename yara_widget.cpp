@@ -160,7 +160,7 @@ void YARA_Widget::scan()
     g_pdStruct = XBinary::createPdStruct();
 
     //    g_xyara.addRulesFile("C:\\tmp_build\\qt5\\Detect-It-Easy\\yara\\packer.yar");
-    g_xyara.setData(g_sFileName, getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString(), &g_pdStruct);
+    g_xyara.setData(g_sFileName, getGlobalOptions()->getValue(XOptions::ID_SCAN_YARA_DATABASE_PATH).toString(), &g_pdStruct);
     g_xyara.process();
 
     g_scanResult = g_xyara.getScanResult();
@@ -218,8 +218,8 @@ void YARA_Widget::on_pushButtonYaraExtraInformation_clicked()
 
 void YARA_Widget::on_pushButtonRules_clicked()
 {
-    QString sDirectory = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString();
-    sDirectory = XBinary::convertPathName(sDirectory);
+    QString sDirectory = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARA_DATABASE_PATH).toString();
+    sDirectory = XOptions::convertPathName(sDirectory);
     XOptions::showFolder(sDirectory);
 }
 

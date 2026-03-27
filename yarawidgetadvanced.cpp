@@ -102,7 +102,7 @@ void YARAWidgetAdvanced::process()
 {
 #ifdef USE_YARA
     XYara xyara;
-    QString sRulesPath = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString();
+    QString sRulesPath = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARA_DATABASE_PATH).toString();
 
     XDialogProcess dialogStaticScanProcess(this, &xyara);
     dialogStaticScanProcess.setGlobal(getShortcuts(), getGlobalOptions());
@@ -221,7 +221,7 @@ void YARAWidgetAdvanced::on_toolButtonScan_clicked()
 
 void YARAWidgetAdvanced::on_toolButtonRules_clicked()
 {
-    QString sDirectory = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARARULESPATH).toString();
-    sDirectory = XBinary::convertPathName(sDirectory);
+    QString sDirectory = getGlobalOptions()->getValue(XOptions::ID_SCAN_YARA_DATABASE_PATH).toString();
+    sDirectory = XOptions::convertPathName(sDirectory);
     XOptions::showFolder(sDirectory);
 }
