@@ -61,10 +61,13 @@ void YARA_Widget::setData(const QString &sFileName, OPTIONS scanOptions, bool bS
 #ifdef USE_YARA
 void YARA_Widget::setResultToTreeView(QTreeView *pTreeView, XYara::SCAN_RESULT *pScanResult)
 {
-    // TODO delete old model
     qint32 nNumberOfRecords = pScanResult->listRecords.count();
 
-    QStandardItemModel *pModel = new QStandardItemModel;
+    QAbstractItemModel *pOldModel = pTreeView->model();
+    pTreeView->setModel(nullptr);
+    delete pOldModel;
+
+    QStandardItemModel *pModel = new QStandardItemModel(pTreeView);
 
     QMap<QString, QStandardItem *> mapParents;
 
@@ -178,13 +181,9 @@ void YARA_Widget::on_scanFinished()
 {
     enableControls(true);
 #ifdef USE_YARA
-    QAbstractItemModel *pOldModel = ui->treeViewResult->model();
-
     setResultToTreeView(ui->treeViewResult, &g_scanResult);
 
-    deleteOldAbstractModel(&pOldModel);
-
-    ui->lineEditElapsedTime->setText(QString("%1 %2").arg(QString::number(g_scanResult.nScanTime), tr("msec")));
+    ui->lineEditElapsedTime->setText(QString("%1 %2").arg(QString::number(g_scanResult.nScanTime)).arg(tr("msec")));
 #endif
     g_bProcess = false;
 
